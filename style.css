@@ -1,0 +1,292 @@
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	/* Primary */
+	--Desaturated-Red: hsl(0, 36%, 70%);
+	--Soft-Red: hsl(0, 93%, 68%);
+	/* Neutral */
+	--Dark-Grayish-Red: hsl(0, 6%, 24%);
+	/* Gradients */
+	--linear-one: linear-gradient(hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+	--linear-two: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+}
+
+/* global styles */
+
+body,
+.texts__email,
+.texts,
+form,
+label {
+	display: flex;
+}
+
+body {
+	font-size: 16px;
+	font-family: 'Josefin Sans', sans-serif;
+	flex-direction: column;
+	position: relative;
+	min-height: 100vh;
+}
+
+section {
+	width: 100%;
+}
+
+header {
+	padding: 1.5rem;
+}
+
+header img {
+	width: 6rem;
+}
+
+.hero {
+	width: 100%;
+	height: 15.5rem;
+	background-image: url(/images/hero-mobile.jpg);
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+
+.hero img {
+	width: 100%;
+}
+
+.texts__email,
+.texts {
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.texts__email {
+	gap: 2rem;
+	padding: 4rem 2rem;
+}
+
+.texts {
+	gap: 1rem;
+}
+
+.texts h1 {
+	font-size: clamp(2.6rem, 6vw + 0.1rem, 4rem);
+	font-weight: 600;
+	text-align: center;
+	color: var(--Dark-Grayish-Red);
+	text-transform: uppercase;
+	letter-spacing: 6px;
+}
+
+.texts h1 span {
+	font-weight: 300;
+	color: var(--Desaturated-Red);
+}
+
+.texts p {
+	font-size: clamp(0.9rem, 2vw + 0.4rem, 1rem);
+	text-align: center;
+	color: var(--Desaturated-Red);
+	line-height: 1.6;
+	max-width: 28rem;
+}
+
+form {
+	width: 100%;
+	justify-content: center;
+}
+
+.email__container {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	width: 100%;
+	max-width: 28rem;
+	border-radius: 40px;
+	border: 1px solid var(--Desaturated-Red);
+}
+
+.email__container.valid {
+	border: 1px solid var(--Desaturated-Red);
+}
+
+.email__container.invalid {
+	border-color: var(--Soft-Red);
+}
+
+input[type='email'] {
+	position: relative;
+	width: 100%;
+	border: none;
+	outline: none;
+	border-radius: 40px;
+	padding: 1rem 1.6rem;
+	color: var(--Dark-Grayish-Red);
+	font-weight: 600;
+	font-family: 'Josefin Sans', sans-serif;
+	background-color: transparent;
+}
+
+input[type='email']::placeholder {
+	color: var(--Desaturated-Red);
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+.error__icon {
+	display: none;
+	position: absolute;
+	top: 0.7rem;
+	right: 5rem;
+	width: 1.3rem;
+}
+
+.validation {
+	position: absolute;
+	bottom: -1.5rem;
+	left: 1rem;
+	font-size: 0.8rem;
+}
+
+label {
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: -1px;
+	right: 0;
+	border-radius: 40px;
+	width: 4rem;
+	height: 3rem;
+	background-image: var(--linear-two);
+	transition: 0.3s ease-in-out;
+	box-shadow: 0 5px 15px hsla(0, 36%, 70%, 0.459);
+}
+
+label:hover {
+	background: linear-gradient(
+		135deg,
+		hsla(0, 0%, 100%, 0.685),
+		hsl(0, 96%, 81%)
+	);
+}
+
+label:active {
+	background-image: var(--linear-two);
+}
+
+.attribution {
+	position: absolute;
+	bottom: 2%;
+	left: 9%;
+	font-size: 11px;
+	color: var(--Dark-Grayish-Red);
+}
+.attribution a {
+	text-decoration: none;
+	color: var(--Desaturated-Red);
+}
+
+@media only screen and (min-width: 26.5625rem) {
+	body {
+		background-image: url(/images/bg-pattern-desktop.svg);
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+}
+
+@media only screen and (min-width: 37.5rem) {
+	main {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		min-height: 100vh;
+	}
+
+	header img {
+		width: 7rem;
+	}
+
+	.hero {
+		background-image: url(/images/hero-desktop.jpg);
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: right -9rem center;
+		height: 100%;
+		/* grid-column: 2; */
+		grid-row: span 2;
+	}
+
+	.texts__email {
+		gap: 2.5rem;
+	}
+
+	.texts h1,
+	.texts p {
+		text-align: left;
+		justify-self: flex-start;
+		align-self: flex-start;
+	}
+
+	.texts {
+		gap: 1.5rem;
+	}
+
+	.texts h1 {
+		line-height: 1.05;
+	}
+
+	.texts p {
+		line-height: 1.78;
+	}
+
+	input[type='email'] {
+		padding-block: 1.2rem;
+	}
+
+	label {
+		width: 5.9rem;
+		height: 3.38rem;
+	}
+
+	.attribution {
+		left: 5%;
+	}
+}
+
+@media only screen and (min-width: 64rem) {
+	header {
+		width: min(100% - 8rem, 28rem);
+		margin-inline: auto;
+	}
+
+	header img {
+		width: 10rem;
+		padding-block: 2.5rem;
+	}
+
+	.hero {
+		background-size: 33.3rem;
+		background-position: right;
+		height: 100%;
+	}
+
+	.texts {
+		padding-left: 3rem;
+	}
+
+	form {
+		align-items: center;
+		justify-content: center;
+		padding-left: 2rem;
+	}
+
+	.attribution {
+		left: 12%;
+	}
+}
